@@ -12,11 +12,15 @@ class Solution:
             if dp[curr][k] > -1:
                 return dp[curr][k]
             res = 0
-            #only go right if it is possible to do in k steps
+            #only go "right" if it is possible to do in k steps
             if curr+1 < arrLen and curr+1 <= k-1:
                 res = findWays(curr+1, k-1) % mod
+
+            #number of ways to "stay"
             if curr <= k-1:
                 res += findWays(curr, k-1) % mod
+
+            #number of ways to go "left"
             if curr-1 >= 0 and curr-1 <= k-1:
                 res += findWays(curr-1, k-1) % mod
 
