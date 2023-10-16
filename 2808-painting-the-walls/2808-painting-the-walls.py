@@ -5,6 +5,7 @@ class Solution:
         index = len(cost)
         #dp = [[-1 for _ in range(index)]for _ in range(walls+1)]
         dp = {}
+
         
         def dfs(i, remainWalls):
             if remainWalls <= 0:
