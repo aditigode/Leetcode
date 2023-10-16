@@ -4,7 +4,7 @@ class Solution:
         walls = len(cost)
         index = len(cost)
         dp = [[-1 for _ in range(index)]for _ in range(walls+1)]
-
+        @cache
         def dfs(i, remainWalls):
             if remainWalls <= 0:
                 return 0
