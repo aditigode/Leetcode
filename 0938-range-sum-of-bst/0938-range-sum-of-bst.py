@@ -19,7 +19,7 @@ class Solution:
             
         if high > root.val:
             total += self.rangeSumBST(root.right,low,high)
-        #print(total)
+        #print(total,root.val)
         return total
             
                 
