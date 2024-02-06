@@ -47,7 +47,7 @@ class Solution:
             nonlocal result
             if queens == n:
                 #print(board,"queeensss")
-                board1 = board[:]
+                #board1 = board[:]
                 #print(board1)
                 result.append([''.join(row) for row in board])
                 
