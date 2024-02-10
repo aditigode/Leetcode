@@ -10,10 +10,12 @@ class Solution:
         # 0, 0 = 1,2 [2] = 2,2 [2] 2,0
        # The container that holds all intermediate solutions.
         # key: the largest element in a valid subset.
+        # time complexity O(N^2)
         subsets = {-1: set()}
         
         for num in sorted(nums):
             subsets[num] = max([subsets[k] for k in subsets if num % k == 0], key=len) | {num}
+            #print(subsets)
         
         return list(max(subsets.values(), key=len))
     
