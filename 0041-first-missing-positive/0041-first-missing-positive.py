@@ -14,7 +14,7 @@ class Solution:
                 
         #count = 1
         
-        print(nums)
+        #print(nums)
         # check for the marked numbers and return the one that has not been marked
         for i in range(len(nums)):
             if nums[i] >= 0:
