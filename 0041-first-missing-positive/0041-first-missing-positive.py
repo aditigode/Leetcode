@@ -1,38 +1,26 @@
 class Solution:
     def firstMissingPositive(self, nums: List[int]) -> int:
         
-        numLen = len(nums)
-
+        # remove -ve and 0 numbers
         for i in range(len(nums)):
-            if 0 >= nums[i] or nums[i] > numLen:
-                nums[i] = numLen + 1
-
-        for i in range(len(nums)):
-            num = abs(nums[i])
-            num -= 1
-            # negative or num > numLen: useless number so ignore
-            if num+1 > numLen:
-                continue
+            if nums[i] <= 0:
+                nums[i] = len(nums)+1
             
-            # to prevent double negative; this will happen in case of duplicates
-            elif nums[num] > 0:
-                nums[num] = -1 * nums[num]
-
-        # check for missing number
+        # mark numbers which are present in the array
+        
         for i in range(len(nums)):
-            #print(i,nums)
-            if nums[i] > 0:
+            if 0 < abs(nums[i]) <= len(nums) and nums[abs(nums[i])-1] > 0:
+                nums[abs(nums[i])-1] *= -1
+                
+        #count = 1
+        
+        print(nums)
+        # check for the marked numbers and return the one that has not been marked
+        for i in range(len(nums)):
+            if nums[i] >= 0:
                 return i+1
-        
-        #if array if exhausted, return the next positive outside the array e.g [1] = 2
-        return numLen+1
-
-        
-
-
-
-
-        
             
-
+        return len(nums)+1
+            
+            
         
